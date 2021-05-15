@@ -24,7 +24,7 @@ jobs:
     - name: Pack
       run: dotnet pack -v normal -c Release --no-restore --include-symbols --include-source src/${{github.workflow}}/${{github.workflow}}.csproj
     - name: Publish
-      run: dotnet nuget push src/bin/Release/${{github.workflow}}.*.nupkg --api-key  ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push src/bin/Release/${{github.workflow}}/${{github.workflow}}.*.nupkg --api-key  ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
       
       
       
