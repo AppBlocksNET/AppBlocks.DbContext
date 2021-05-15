@@ -23,5 +23,15 @@ namespace AppBlocks.DbContext.Tests
 
             Assert.IsFalse(string.IsNullOrEmpty(config.GetConnectionString("AppBlocks")));
         }
+
+        [TestMethod]
+        public void ConnectionStringAppBlocksEnvVariableTest()
+        {
+            var config = Config.Factory.GetConfig();
+            Assert.IsFalse(config == null);
+            var connectionString = config.GetConnectionString("AppBlocks");
+            Assert.IsFalse(string.IsNullOrEmpty(connectionString));
+            Assert.IsTrue(connectionString != "xx");
+        }
     }
 }

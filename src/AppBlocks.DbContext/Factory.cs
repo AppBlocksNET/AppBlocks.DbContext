@@ -19,9 +19,9 @@ namespace AppBlocks.DbContext
             return new AppBlocksDbContext(optionsBuilder.Options);
         }
 
-        public static string Sync()
+        public static string Sync(string connectionString = "AppBlocksAzure")
         {
-            return Sync(CreateDbContext(), CreateDbContext("AppBlocksAzure"));
+            return Sync(CreateDbContext(), CreateDbContext(connectionString));
         }
 
         public static string Sync(AppBlocksDbContext sourceDbContext, AppBlocksDbContext destinationDbContext, bool WhatIf = false)

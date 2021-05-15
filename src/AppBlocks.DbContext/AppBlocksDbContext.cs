@@ -30,6 +30,11 @@ namespace AppBlocks
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Setting>(entity =>
+            {
+                entity.HasKey(e => e.Key);
+            });
+
             modelBuilder.Entity<Item>(entity =>
             {
                 entity.HasKey(e => e.Id);
