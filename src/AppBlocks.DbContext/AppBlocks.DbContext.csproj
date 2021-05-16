@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
     <Authors>AppBlocks David Walker Radical Dave</Authors>
     <Company>AppBlocks David Walker Radical Dave</Company>
     <Copyright>AppBlocks David Walker Radical Dave</Copyright>
@@ -12,11 +12,12 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/appblocksnet/appblocks.dbcontext</RepositoryUrl>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReleaseNotes>added MemberByUserIdAsync</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AppBlocks.Config" Version="0.0.1" />
-    <PackageReference Include="AppBlocks.Models" Version="0.0.6" />
+    <PackageReference Include="AppBlocks.Models" Version="0.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />

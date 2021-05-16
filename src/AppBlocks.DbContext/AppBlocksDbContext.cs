@@ -4,14 +4,16 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
-namespace AppBlocks
+namespace AppBlocks.DbContext
 {
     public partial class AppBlocksDbContext : IdentityDbContext
     {
         public AppBlocksDbContext(DbContextOptions<AppBlocksDbContext> options) : base(options) { }
 
         public DbSet<Item> Items { get; set; }
+        public DbSet<Member> Members { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -91,5 +93,11 @@ namespace AppBlocks
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public async Task<Member> MemberByUserIdAsync(string name)
+        {
+            return await CompiledQueries.MemberByUserIdAsync(this, name);
+        }
+
     }
 }
