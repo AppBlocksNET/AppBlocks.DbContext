@@ -14,6 +14,7 @@ namespace AppBlocks.DbContext
 
         public DbSet<Item> Items { get; set; }
         public DbSet<Member> Members { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -86,8 +87,8 @@ namespace AppBlocks.DbContext
                 //entity.HasOne(m => m.Editor).WithMany(i => i.EditedBy).HasForeignKey(i => i.EditorId).IsRequired(false);
                 entity.HasOne(m => m.Type).WithMany(i => i.TypeOf).HasForeignKey(i => i.TypeId).IsRequired(false);
                 entity.HasOne(m => m.Owner).WithMany(i => i.OwnedBy).HasForeignKey(i => i.OwnerId).IsRequired(false);
+                entity.HasMany(m => m.Settings);
             });
-
 
             OnModelCreatingPartial(modelBuilder);
         }
