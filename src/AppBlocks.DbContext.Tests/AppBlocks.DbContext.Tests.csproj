@@ -14,6 +14,7 @@
   <ItemGroup>
     <Content Include="appsettings.Development.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TransformOnBuild>true</TransformOnBuild>
     </Content>
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -21,13 +22,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AppBlocks.Config" Version="0.0.1" />
-    <PackageReference Include="AppBlocks.Models" Version="0.0.7" />
+    <PackageReference Include="AppBlocks.Config" Version="0.0.4" />
+    <PackageReference Include="AppBlocks.Models" Version="0.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.4" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.3" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.3" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.10.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.4" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.4" />
     <PackageReference Include="coverlet.collector" Version="3.0.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -44,6 +45,19 @@
     <Compile Update="DataTests.cs">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Compile>
+  </ItemGroup>
+
+
+
+  <ItemGroup>
+    <None Update="appsettings.Development.Debug.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>appsettings.Development.json</DependentUpon>
+    </None>
+    <None Update="appsettings.Development.Release.json">
+      <IsTransformFile>true</IsTransformFile>
+      <DependentUpon>appsettings.Development.json</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>

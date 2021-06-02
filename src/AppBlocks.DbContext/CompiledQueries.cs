@@ -124,63 +124,63 @@ namespace AppBlocks.DbContext
         //}
 
 
-        public static Func<AppBlocksDbContext, string, Task<Member>> MemberByEmailAsync =
-            EF.CompileAsyncQuery((AppBlocksDbContext db, string email) =>
-                db.Members
-                    //.Include(m => m.Groups)
-                    //.Include(m => m.Links).ThenInclude(l => l.Link)
-                    //.Include(g => g.Tags)
-                    //.Include(s => s.TalksSpeakers).ThenInclude(t => t.Talk)
-                    .AsNoTracking()
-                    .FirstOrDefault(m => m.Email == email));
+        //public static Func<AppBlocksDbContext, string, Task<Member>> MemberByEmailAsync =
+        //    EF.CompileAsyncQuery((AppBlocksDbContext db, string email) =>
+        //        db.Members
+        //            //.Include(m => m.Groups)
+        //            //.Include(m => m.Links).ThenInclude(l => l.Link)
+        //            //.Include(g => g.Tags)
+        //            //.Include(s => s.TalksSpeakers).ThenInclude(t => t.Talk)
+        //            .AsNoTracking()
+        //            .FirstOrDefault(m => m.Email == email));
 
-        public static Func<AppBlocksDbContext, Guid, Task<Member>> MemberOnlyByIdAsync =
-            EF.CompileAsyncQuery((AppBlocksDbContext db, Guid id) =>
-                db.Members
-                    .AsNoTracking()
-                    .FirstOrDefault(m => m.Id == id.ToString()));
+        //public static Func<AppBlocksDbContext, Guid, Task<Member>> MemberOnlyByIdAsync =
+        //    EF.CompileAsyncQuery((AppBlocksDbContext db, Guid id) =>
+        //        db.Members
+        //            .AsNoTracking()
+        //            .FirstOrDefault(m => m.Id == id.ToString()));
 
-        public static Func<AppBlocksDbContext, Guid, Task<Member>> MemberByIdAsync =
-            EF.CompileAsyncQuery((AppBlocksDbContext db, Guid id) =>
-                db.Members
-                    //.Include(s => s.EventSpeakers).ThenInclude(e => e.Event).ThenInclude(s => s.Sessions).ThenInclude(s => s.Speakers)
-                    //.Include(m => m.Groups)
-                    //.Include(m => m.Links).ThenInclude(l => l.Link)
-                    //.Include(g => g.Tags)
-                    //.Include(s => s.TalksSpeakers).ThenInclude(t => t.Talk).ThenInclude(t => t.Speakers)
-                    .AsNoTracking()
-                    .FirstOrDefault(m => m.Id == id.ToString()));
+        //public static Func<AppBlocksDbContext, Guid, Task<Member>> MemberByIdAsync =
+        //    EF.CompileAsyncQuery((AppBlocksDbContext db, Guid id) =>
+        //        db.Members
+        //            //.Include(s => s.EventSpeakers).ThenInclude(e => e.Event).ThenInclude(s => s.Sessions).ThenInclude(s => s.Speakers)
+        //            //.Include(m => m.Groups)
+        //            //.Include(m => m.Links).ThenInclude(l => l.Link)
+        //            //.Include(g => g.Tags)
+        //            //.Include(s => s.TalksSpeakers).ThenInclude(t => t.Talk).ThenInclude(t => t.Speakers)
+        //            .AsNoTracking()
+        //            .FirstOrDefault(m => m.Id == id.ToString()));
 
-        public static Func<AppBlocksDbContext, string, Task<Member>> MemberByNameAsync =
-            EF.CompileAsyncQuery((AppBlocksDbContext db, string name) =>
-                db.Members
-                    //.Include(s => s.EventSpeakers).ThenInclude(e => e.Event).ThenInclude(e => e.Group)
-                    //.Include(s => s.EventSpeakers).ThenInclude(e => e.Event).ThenInclude(s => s.Sessions).ThenInclude(s => s.Speakers)
-                    //.Include(m => m.Groups)
-                    //.Include(m => m.Links).ThenInclude(l => l.Link)
-                    //.Include(g => g.Tags)
-                    //.Include(s => s.TalksSpeakers).ThenInclude(t => t.Talk).ThenInclude(t => t.Speakers)
-                    .AsNoTracking()
-                    //.FirstOrDefault(m => string.Equals(m.Name, name, StringComparison.CurrentCultureIgnoreCase)));
-                    .FirstOrDefault(m => m.Name.ToLower() == name.ToLower()));
+        //public static Func<AppBlocksDbContext, string, Task<Member>> MemberByNameAsync =
+        //    EF.CompileAsyncQuery((AppBlocksDbContext db, string name) =>
+        //        db.Members
+        //            //.Include(s => s.EventSpeakers).ThenInclude(e => e.Event).ThenInclude(e => e.Group)
+        //            //.Include(s => s.EventSpeakers).ThenInclude(e => e.Event).ThenInclude(s => s.Sessions).ThenInclude(s => s.Speakers)
+        //            //.Include(m => m.Groups)
+        //            //.Include(m => m.Links).ThenInclude(l => l.Link)
+        //            //.Include(g => g.Tags)
+        //            //.Include(s => s.TalksSpeakers).ThenInclude(t => t.Talk).ThenInclude(t => t.Speakers)
+        //            .AsNoTracking()
+        //            //.FirstOrDefault(m => string.Equals(m.Name, name, StringComparison.CurrentCultureIgnoreCase)));
+        //            .FirstOrDefault(m => m.Name.ToLower() == name.ToLower()));
 
-        public static Func<AppBlocksDbContext, string, Task<Member>> MemberByUserIdAsync =
-            EF.CompileAsyncQuery((AppBlocksDbContext db, string userId) =>
-                db.Members
-                    //.Include(s => s.EventSpeakers).ThenInclude(e => e.Event).ThenInclude(s => s.Sessions).ThenInclude(s => s.Speakers)
-                    //.Include(m => m.Groups)
-                    //.Include(m => m.Links).ThenInclude(l => l.Link)
-                    //.Include(g => g.Tags)
-                    //.Include(s => s.TalksSpeakers).ThenInclude(t => t.Talk).ThenInclude(t => t.Speakers)
-                    .AsNoTracking()
-                    .FirstOrDefault(m => userId != null && m.UserId == userId));
+        //public static Func<AppBlocksDbContext, string, Task<Member>> MemberByUserIdAsync =
+        //    EF.CompileAsyncQuery((AppBlocksDbContext db, string userId) =>
+        //        db.Members
+        //            //.Include(s => s.EventSpeakers).ThenInclude(e => e.Event).ThenInclude(s => s.Sessions).ThenInclude(s => s.Speakers)
+        //            //.Include(m => m.Groups)
+        //            //.Include(m => m.Links).ThenInclude(l => l.Link)
+        //            //.Include(g => g.Tags)
+        //            //.Include(s => s.TalksSpeakers).ThenInclude(t => t.Talk).ThenInclude(t => t.Speakers)
+        //            .AsNoTracking()
+        //            .FirstOrDefault(m => userId != null && m.UserId == userId));
 
 
-        public static Func<AppBlocksDbContext, string, Task<Member>> MemberOnlyByUserIdAsync =
-            EF.CompileAsyncQuery((AppBlocksDbContext db, string userId) =>
-                db.Members
-                    .AsNoTracking()
-                    .FirstOrDefault(m => m.UserId == userId));
+        //public static Func<AppBlocksDbContext, string, Task<Member>> MemberOnlyByUserIdAsync =
+        //    EF.CompileAsyncQuery((AppBlocksDbContext db, string userId) =>
+        //        db.Members
+        //            .AsNoTracking()
+        //            .FirstOrDefault(m => m.UserId == userId));
 
         //public static Func<AppBlocksDbContext, string, Task<Member>> MemberByUserIdAsync =
         //    EF.CompileAsyncQuery((AppBlocksDbContext db, string userId) =>

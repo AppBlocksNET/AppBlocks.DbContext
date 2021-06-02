@@ -13,16 +13,16 @@ namespace AppBlocks.DbContext
         public AppBlocksDbContext(DbContextOptions<AppBlocksDbContext> options) : base(options) { }
 
         public DbSet<Item> Items { get; set; }
-        public DbSet<Member> Members { get; set; }
+        //public DbSet<Member> Members { get; set; }
         public DbSet<Setting> Settings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                IConfigurationRoot configuration = Config.Factory.GetConfig();
+                //IConfigurationRoot configuration = Config.Factory.GetConfig();
                 optionsBuilder.UseSqlServer(
-                    configuration.GetConnectionString(typeof(AppBlocksDbContext).Namespace)
+                    Config.Factory.GetConnectionString(typeof(AppBlocksDbContext).Namespace) ?? Config.Factory.GetConnectionString("AppBlocks")
                     //$"Server=.\\;Database={typeof(AppBlocksDbContext).Namespace};Trusted_Connection=True;MultipleActiveResultSets=true;Application Name=AppBlocks.Web.Dev"
                     , builder =>
                  builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null));
@@ -95,10 +95,10 @@ namespace AppBlocks.DbContext
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-        public async Task<Member> MemberByUserIdAsync(string name)
-        {
-            return await CompiledQueries.MemberByUserIdAsync(this, name);
-        }
+        //public async Task<Member> MemberByUserIdAsync(string name)
+        //{
+        //    return await CompiledQueries.MemberByUserIdAsync(this, name);
+        //}
 
     }
 }
