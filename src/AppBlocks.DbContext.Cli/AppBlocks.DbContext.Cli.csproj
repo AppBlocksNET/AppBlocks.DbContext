@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AppBlocks.Config" Version="0.0.4" />
-    <PackageReference Include="AppBlocks.Models" Version="0.0.9" />
+    <PackageReference Include="AppBlocks.Config" Version="0.0.5" />
+    <PackageReference Include="AppBlocks.Models" Version="0.0.20" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.6" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />

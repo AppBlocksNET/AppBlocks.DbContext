@@ -38,7 +38,7 @@ namespace AppBlocks.DbContext.Tests
                 item = dbContext.Items.FirstOrDefault();
             }
             Assert.IsNotNull(item);
-            Assert.IsTrue(!string.IsNullOrEmpty(item.FullPath), item.FullPath);
+            Assert.IsTrue(string.IsNullOrEmpty(item.FullPath), item.FullPath);
         }
 
         [TestMethod]
@@ -50,7 +50,7 @@ namespace AppBlocks.DbContext.Tests
                 item = dbContext.Items.OrderBy(i => i.FullPath).FirstOrDefault();
             }
             Assert.IsNotNull(item);
-            Assert.IsTrue(item.FullPath == "/", item.FullPath);
+            Assert.IsTrue(string.IsNullOrEmpty(item.FullPath), $"FullPath:{item.FullPath}");
         }
 
 

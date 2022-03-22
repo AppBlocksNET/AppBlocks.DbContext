@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace AppBlocks.DbContext
 {
@@ -14,7 +16,7 @@ namespace AppBlocks.DbContext
 
         public DbSet<Item> Items { get; set; }
         //public DbSet<Member> Members { get; set; }
-        public DbSet<Setting> Settings { get; set; }
+        //public DbSet<Setting> Settings { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,11 +34,6 @@ namespace AppBlocks.DbContext
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<Setting>(entity =>
-            {
-                entity.HasKey(e => e.Key);
-            });
 
             modelBuilder.Entity<Item>(entity =>
             {
@@ -87,7 +84,7 @@ namespace AppBlocks.DbContext
                 //entity.HasOne(m => m.Editor).WithMany(i => i.EditedBy).HasForeignKey(i => i.EditorId).IsRequired(false);
                 entity.HasOne(m => m.Type).WithMany(i => i.TypeOf).HasForeignKey(i => i.TypeId).IsRequired(false);
                 entity.HasOne(m => m.Owner).WithMany(i => i.OwnedBy).HasForeignKey(i => i.OwnerId).IsRequired(false);
-                entity.HasMany(m => m.Settings);
+                //entity.HasMany(m => m.Settings);
             });
 
             OnModelCreatingPartial(modelBuilder);
@@ -99,6 +96,5 @@ namespace AppBlocks.DbContext
         //{
         //    return await CompiledQueries.MemberByUserIdAsync(this, name);
         //}
-
     }
 }
